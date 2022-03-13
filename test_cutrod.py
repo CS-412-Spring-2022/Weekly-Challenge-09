@@ -1,9 +1,11 @@
+import pytest
 import random
 
 from cutrod import *
 
 
-def test_cutrod():
+@pytest.mark.parametrize('i', range(20))
+def test_cutrod(i):
     n = 20
     p = [None] * (n+1)
     p[0] = 0
