@@ -41,5 +41,5 @@ def test_maxflow(case):
     maxflow = MaxFlow(case.graph)
     assert case.maxflow == maxflow.get_value(), \
         f'bad max flow value for graph:\n{case.graph}'
-    assert case.flow == sorted(maxflow.get_flow()), \
+    assert case.flow == maxflow.get_flow(), \
         f'bad max flow for graph:\n{case.graph}'
