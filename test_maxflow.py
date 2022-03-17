@@ -1,10 +1,10 @@
+import itertools
 import pytest
 
 from maxflow import *
 from urllib.request import urlopen
 
 casefile = "https://waqarsaleem.github.io/cs412/wc09/maxflow-cases.txt"
-casefile = "maxflow-cases.txt"
 
 
 class Case:
@@ -39,7 +39,7 @@ def fetch_testcases(path: str) -> [Case]:
 @pytest.mark.parametrize('case', fetch_testcases(casefile))
 def test_maxflow(case):
     maxflow = MaxFlow(case.graph)
-    assert case.maxflow == maxflow.get_value(), \
+    assert case.val == maxflow.get_value(), \
         f'bad max flow value for graph:\n{case.graph}'
     assert case.flow == maxflow.get_flow(), \
         f'bad max flow for graph:\n{case.graph}'
